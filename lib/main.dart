@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'routes/app_routes.dart';
+
 void main() {
   runApp(const PortfolioApp());
 }
@@ -9,13 +11,15 @@ class PortfolioApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Portfolio App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Product Sans',
       ),
-      home: const SizedBox.shrink(),
+      routeInformationProvider: AppRoutes.router.routeInformationProvider,
+      routeInformationParser: AppRoutes.router.routeInformationParser,
+      routerDelegate: AppRoutes.router.routerDelegate,
     );
   }
 }
